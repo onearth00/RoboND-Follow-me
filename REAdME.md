@@ -19,7 +19,7 @@ a picture on the layers
 - validation_steps = 50
 - workers = 2
 
-## Training
+## Training <!-- omit in toc -->
 
 ## Results <!-- omit in toc -->
 
