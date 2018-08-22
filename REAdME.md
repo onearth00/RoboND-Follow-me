@@ -7,7 +7,9 @@ The original Udacity project repo is here.
 
 ## Neural network architecture <!-- omit in toc -->
 
-## Hyperparameters <!-- omit in toc -->
+a picture on the layers
+
+## Training parameters <!-- omit in toc -->
 
 - learning_rate = 0.001
 - batch_size = 128
@@ -17,7 +19,8 @@ The original Udacity project repo is here.
 - validation_steps = 50
 - workers = 2
 
+## Training
+
 ## Results <!-- omit in toc -->
 
 ## Thoughts on further improvement <!-- omit in toc -->
-
