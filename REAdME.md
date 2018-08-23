@@ -3,6 +3,8 @@ In this project, I trained a deep neural network to identify and track a target 
 
 The model used in the semantic segmentation task is a 7-layer fully convolutional network (FCN), built in Tensorflow and Keras. The model training is accelerated with a p2.xlarge AWS EC2 instance.
 
+The 
+
 ## Neural network architecture <!-- omit in toc -->
 
 a picture on the layers
@@ -14,14 +16,13 @@ The below parameters were attempted to train the fully-connected network, yieldi
 - learning_rate = 0.001
 - batch_size = 128
 - num_epochs = 40
-
 - steps_per_epoch = 200
 - validation_steps = 50
 - workers = 2
 
 A more adaptive approach may be adopted to dynamically tune learning_rate as a function of validation loss. 
 
-Training took place on an Amazon EC2 (p2.xlarge) instance. Each epoch takes about 320 seconds to train, and the total used time amounted to 3 1/2 hours.
+Training took place on an Amazon EC2 (p2.xlarge) instance. Each epoch takes about 320 seconds to train, and the total used time amounted to 3.5 hours.
 
 ## Results <!-- omit in toc -->
 
