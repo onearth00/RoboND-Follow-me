@@ -6,7 +6,14 @@ The model used in the semantic segmentation task is a 7-layer fully convolutiona
 I will walk through architecture of the constructed model, followed by training, results and thoughts on further improvement.
 
 ## Neural network architecture <!-- omit in toc -->
-a picture on the layers
+a fully convolutional network (FCN) trained end-to-end, pixels-to-pixels on semantic segmentation without further machinery.
+The goal is to end-to-end (1) for pixelwise prediction and (2) from supervised
+pre-training.
+
+- encoder
+- 1\tiems 1 convolution layer
+- decoder
+
 
 ## Training parameters <!-- omit in toc -->
 
