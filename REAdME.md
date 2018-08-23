@@ -3,10 +3,9 @@ In this project, I trained a deep neural network to identify and track a target 
 
 The model used in the semantic segmentation task is a 7-layer fully convolutional network (FCN), built in Tensorflow and Keras. The model training was accelerated with a p2.xlarge AWS EC2 instance.
 
-The 
+I will 
 
 ## Neural network architecture <!-- omit in toc -->
-
 a picture on the layers
 
 ## Training parameters <!-- omit in toc -->
