@@ -1,9 +1,7 @@
 ## Deep Learning Project <!-- omit in toc -->
-This project involved the building of a fully convolutional network (FCN) to which was trained to identify a target individual from a simulated drone camera feed.
+In this project, I trained a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques may be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
 
-The model is built within Tensorflow and Keras, and was trained using a p2.xlarge AWS EC2 instance.
-
-The original Udacity project repo is here.
+The model used in the semantic segmentation task is a 7-layer fully convolutional network (FCN), built in Tensorflow and Keras. The model training is accelerated with a p2.xlarge AWS EC2 instance.
 
 ## Neural network architecture <!-- omit in toc -->
 
@@ -23,7 +21,7 @@ The below parameters were attempted to train the fully-connected network, yieldi
 
 A more adaptive approach may be adopted to dynamically tune learning_rate as a function of validation loss. 
 
-Training took place on an Amazon EC2 (p2.xlarge) instance. Each epoch takes about 320 seconds to train, and the total spared time amounted to 3 1/2 hours.
+Training took place on an Amazon EC2 (p2.xlarge) instance. Each epoch takes about 320 seconds to train, and the total used time amounted to 3 1/2 hours.
 
 ## Results <!-- omit in toc -->
 
