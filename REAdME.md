@@ -13,7 +13,8 @@ The encoder layers the model to gain a better understanding of the characeristic
 
 There are two layers of encoders in the current model. The first layer uses a filter size of 32 and a stride of 2, while the second convolution uses a filter size of 64 and a stride of 2. Both convolutions used same padding. The padding in conjunction with a stride of 2 half image size in each layer, while setting the depth to the filter size. The python code is shown below:
 
-    ```python
+ -
+ ```python
     l1 = encoder_block(inputs, 32, 2)
     l2 = encoder_block(l1,64,2)
     # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
