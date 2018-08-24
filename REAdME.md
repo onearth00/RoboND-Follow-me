@@ -9,6 +9,9 @@ I will walk through architecture of the constructed model, followed by training,
 A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. Unlikely Convolutional Neural Network (CNN), FCN is composed of convolutional layers without fully-connected layers found at the end of the network. By changing the "connected" to "convolutional", one perserve the spatial information through the entire network. A typical FCN is consisted of encoder, 1 by 1 convolution layer, decoder, and some skip connections. 
 
 - encoder
+
+There are two layers of encoders in the current model. The first layer uses a filter size of 32 and a stride of 2, while the second convolution uses a filter size of 64 and a stride of 2. Both convolutions used same padding. This padding combined with a stride of 2 causes each layer to halve the image size, while increasing the depth to match the filter size used. The python code is shown below:
+
     ```python
     l1 = encoder_block(inputs, 32, 2)
     l2 = encoder_block(l1,64,2)
