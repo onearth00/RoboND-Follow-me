@@ -13,21 +13,16 @@ A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pi
     l1 = encoder_block(inputs, 32, 2)
     l2 = encoder_block(l1,64,2)
     # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
-
-  
-    # TODO: Add the same number of Decoder Blocks as the number of Encoder Blocks
-    l4 = decoder_block(l3,l1,64)
-    x = decoder_block(l4,inputs,32)
     ```
 - 1 by 1 convolution layer
     ```python
      
-    l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) # TODO Add 1x1 Convolution layer using conv2d_batchnorm().
+    l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) #Add 1x1 Convolution layer using conv2d_batchnorm().
     ```
 - decoder
     ```python
     l4 = decoder_block(l3,l1,64)
-    x = decoder_block(l4,inputs,32)
+    x = decoder_block(l4,inputs,32) # Add the same number of Decoder Blocks as the number of Encoder Blocks
     ```
 
 ## Training parameters <!-- omit in toc -->
