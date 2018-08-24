@@ -25,6 +25,7 @@ A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pi
     x = decoder_block(l4,inputs,32) # Add the same number of Decoder Blocks as the number of Encoder Blocks
     ```
 - skip connections
+
 Skip connections allow the network to retain information from prior layers that were lost in subsequent convolution layers. Skip layers use the output of one layer as the input to another layer. By using information from multiple image sizes, the model retains more information through the layers and is therefore able to make more precise segmentation decisions.
 
 
