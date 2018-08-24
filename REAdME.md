@@ -9,7 +9,7 @@ I will walk through architecture of the constructed model, followed by training,
 A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. Unlikely Convolutional Neural Network (CNN), FCN is composed of convolutional layers without fully-connected layers found at the end of the network. By changing the "connected" to "convolutional", one perserve the spatial information through the entire network. A typical FCN is consisted of encoder, 1 by 1 convolution layer, decoder, and some skip connections. 
 
 #### Encoder.
-The encoder layers the model to gain a better understanding of the characeristics in the image, building a depth of understanding with respect to specific features and thus the 'semantics' of the segmentation. The first layer might discern colours and brightness, the next might discern aspects of the shape of the object, so for a human body, arms and legs and heads might begin to become successfully segmented. Each successive layers builds greater depth of semantics necessary for the segmentation. However, the deeper the network, the more computationally intensive it becomes to train.
+Each encoder is a convolutional layer for progressive understanding of the characeristics of the image. 
 
 There are two layers of encoders in the current model. The first layer uses a filter size of 32 and a stride of 2, while the second convolution uses a filter size of 64 and a stride of 2. Both convolutions used same padding. The padding in conjunction with a stride of 2 half image size in each layer, while setting the depth to the filter size. The python code is shown below:
  
@@ -25,6 +25,11 @@ The 1x1 convolution layer is a regular convolution, with a stride of 1. This lay
 l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) #Add 1x1 Convolution layer using conv2d_batchnorm().
 ```
 #### Decoder
+The decoder of the model can either be composed of transposed convolution layers or bilinear upsampling layers. The decoder block mimics the use of skip connections by having the larger decoder block input layer act as the skip connection. It calculates the separable convolution layer of the concatenated bilinear upsample of the smaller input layer with the larger input layer.
+
+Two decoders are used in the current model, with the the first taking 1x1 convolution as the small input layer and the first convolution layer as the large input layer, thus mimicking a skip connection. A filter size of 64 is used for this layer.
+
+The second decoder block layer uses the output from the first decoder block as the small input layer, and the original image as the large input layer, again mimicking the skip connection to retain information better through the network. This layer uses a filter size of 32.
 ```python
 l4 = decoder_block(l3,l1,64)
 x = decoder_block(l4,inputs,32) # Add the same number of Decoder Blocks as the number of Encoder Blocks
