@@ -24,19 +24,17 @@ The 1x1 convolution layer is a regular convolution, with a stride of 1. This lay
 ```python
 l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) #Add 1x1 Convolution layer using conv2d_batchnorm().
 ```
-#### Decoder
+#### Decoder.
 The decoder of the model can either be composed of transposed convolution layers or bilinear upsampling layers. The decoder block mimics the use of skip connections by having the larger decoder block input layer act as the skip connection. It calculates the separable convolution layer of the concatenated bilinear upsample of the smaller input layer with the larger input layer.
 
-Two decoders are used in the current model, with the the first taking 1x1 convolution as the small input layer and the first convolution layer as the large input layer, thus mimicking a skip connection. A filter size of 64 is used for this layer.
+Two decoders are used in the current model, with the the first taking 1x1 convolution as the small input layer and the encoder 1 as the large input layer, and a filter size of 64 is used for this layer; the second decoder block layer uses the output from the first decoder block as the small input layer, and the original image as the large input layer, and a filter size of 32 is used for this layer. Below shows the python code:
 
-The second decoder block layer uses the output from the first decoder block as the small input layer, and the original image as the large input layer, again mimicking the skip connection to retain information better through the network. This layer uses a filter size of 32.
 ```python
 l4 = decoder_block(l3,l1,64)
 x = decoder_block(l4,inputs,32) # Add the same number of Decoder Blocks as the number of Encoder Blocks
 ```
-#### Skip connections
 
-Skip connections allow the network to retain information from prior layers that were lost in subsequent convolution layers. Skip layers use the output of one layer as the input to another layer. By using information from multiple image sizes, the model retains more information through the layers and is therefore able to make more precise segmentation decisions.
+Finally, the output convolution layer applies a softmax activation function to the output of the second decoder block. A full schematic of the FCN architecture can be found below:
 
 <img src="./FCN_architecture.png" alt="Schematic of the FCN architecture" width="75%">
 
