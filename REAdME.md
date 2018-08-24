@@ -20,6 +20,7 @@ There are two layers of encoders in the current model. The first layer uses a fi
 ## 1 by 1 convolution layer.
 
 The 1x1 convolution layer is a regular convolution, with a stride of 1. This layer flattens the data for classification while retaining their spatial information. In the pythong below, we use depth of 128 for this layer:
+
     ```python
     l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) #Add 1x1 Convolution layer using conv2d_batchnorm().
     ```
