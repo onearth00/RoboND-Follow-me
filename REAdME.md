@@ -9,17 +9,17 @@ I will walk through architecture of the constructed model, followed by training,
 A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. 
 
 - encoder
- ```python
+    ```python
     name = input('Please type your name: ')
     print('Great job {}!, Keep practicing your Python!'.format(name))
     ```
 - 1 by 1 convolution layer
- ```python
+    ```python
     name = input('Please type your name: ')
     print('Great job {}!, Keep practicing your Python!'.format(name))
     ```
 - decoder
- ```python
+    ```python
     name = input('Please type your name: ')
     print('Great job {}!, Keep practicing your Python!'.format(name))
     ```
