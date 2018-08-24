@@ -1,14 +1,14 @@
-## Deep Learning Project <!-- omit in toc -->
+### Deep Learning Project <!-- omit in toc -->
 In this project, I trained a deep neural network to identify and track a target in simulation. THe so-called “follow me” applications like this are key to many fields of robotics and the very same techniques may be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
 
 The model used in the semantic segmentation task is a 7-layer fully convolutional network (FCN), built in Tensorflow and Keras. The model training was accelerated with a p2.xlarge AWS EC2 instance.
 
 I will walk through architecture of the constructed model, followed by training, results and thoughts on further improvement.
 
-## Neural network architecture <!-- omit in toc -->
+### Neural network architecture <!-- omit in toc -->
 A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. Unlikely Convolutional Neural Network (CNN), FCN is composed of convolutional layers without fully-connected layers found at the end of the network. By changing the "connected" to "convolutional", one perserve the spatial information through the entire network. A typical FCN is consisted of encoder, 1 by 1 convolution layer, decoder, and some skip connections. 
 
-- Encoder.
+## Encoder.
 
 There are two layers of encoders in the current model. The first layer uses a filter size of 32 and a stride of 2, while the second convolution uses a filter size of 64 and a stride of 2. Both convolutions used same padding. The padding in conjunction with a stride of 2 half image size in each layer, while setting the depth to the filter size. The python code is shown below:
 
@@ -17,10 +17,9 @@ There are two layers of encoders in the current model. The first layer uses a fi
     l2 = encoder_block(l1,64,2)
     # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
     ```
-- 1 by 1 convolution layer.
+## 1 by 1 convolution layer.
 
 The 1x1 convolution layer is a regular convolution, with a stride of 1. This layer flattens the data for classification while retaining their spatial information. In the pythong below, we use depth of 128 for this layer:
-
     ```python
     l3 = conv2d_batchnorm(l2, 128, kernel_size=1, strides=1) #Add 1x1 Convolution layer using conv2d_batchnorm().
     ```
