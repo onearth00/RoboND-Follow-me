@@ -11,7 +11,7 @@ The goal is to end-to-end (1) for pixelwise prediction and (2) from supervised
 pre-training.
 
 - encoder
-- 1\tiems 1 convolution layer
+- 1 by 1 convolution layer
 - decoder
 
 
@@ -28,7 +28,7 @@ The below parameters were attempted to train the fully-connected network, yieldi
 
 A more adaptive approach may be adopted to dynamically tune learning_rate as a function of validation loss. 
 
-Training took place on an Amazon EC2 (p2.xlarge) instance. Each epoch takes about 320 seconds to train, and the total used time amounted to 3.5 hours.
+Training took place on an Amazon EC2 ([p2.xlarge](https://aws.amazon.com/ec2/instance-types/p2/)) instance. Each epoch takes about 320 seconds to train, and the total used time amounted to 3.5 hours.
 
 ## Results <!-- omit in toc -->
 
