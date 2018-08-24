@@ -58,4 +58,8 @@ Training took place on an Amazon EC2 ([p2.xlarge](https://aws.amazon.com/ec2/ins
 
 The IoU is 0.55, while the final weighted score is 0.407.
 
-## Thoughts on further improvement <!-- omit in toc -->
+## Thoughts on the model extensibility <!-- omit in toc -->
+
+This model was trained on following a person, but in principle it should be readily extensible to apply to other objects of interest. The key is to provide sufficient amount of target objects for training, of multiple angles of observations and with varying distraction features. 
+
+Real-life scenes are filled with obstacles and constraints. For example, the FCN should also be trained to recognize objects such as trees or telephone poles, and learn to pivot away from the barriers. 
