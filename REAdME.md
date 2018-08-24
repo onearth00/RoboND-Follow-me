@@ -6,7 +6,7 @@ The model used in the semantic segmentation task is a 7-layer fully convolutiona
 I will walk through architecture of the constructed model, followed by training, results and thoughts on further improvement.
 
 ## Neural network architecture <!-- omit in toc -->
-A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. Unlikely Convolutional Neural Network (CNN), FCN is composed of convolutional layers without fully-connected layers found at the end of the network. By changing the "connected" to "convolutional", one perserve the spatial information through the entire network. A typical FCN is consisted of encode, 1 by 1 convolution layer, decoder, and some skip connections. 
+A fully convolutional network (FCN) is an DNN model for end-to-end, pixels-to-pixels semantic segmentation. Unlikely Convolutional Neural Network (CNN), FCN is composed of convolutional layers without fully-connected layers found at the end of the network. By changing the "connected" to "convolutional", one perserve the spatial information through the entire network. A typical FCN is consisted of encoder, 1 by 1 convolution layer, decoder, and some skip connections. 
 
 - encoder
     ```python
